@@ -1,6 +1,7 @@
 public interface Działanie {
 
-    void printInfo();
+    String toString();
 
-    void sprawdzenie();
+
+
 }

@@ -1,39 +1,51 @@
+import java.util.Scanner;
+
 public abstract class Obiekt implements Działanie{
 
-    private String[] obiekt1;
-    private String[] obiekt2;
+    private String name;
+    private int ilosc;
 
-    public String[] getObiekt1() {
-        return obiekt1;
+    public Obiekt() {
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Podaj nazwe mebla: ");
+        this.name = sc.nextLine();
+        System.out.println("Podaj ilość elementu:");
+        this.ilosc = sc.nextInt();
+    }
+    public String getName() {
+        return name;
     }
 
-    public void setObiekt1(String[] obiekt1) {
-        this.obiekt1 = obiekt1;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String[] getObiekt2() {
-        return obiekt2;
+    public int getIlosc() {
+        return ilosc;
     }
 
-    public void setObiekt2(String[] obiekt2) {
-        this.obiekt2 = obiekt2;
+    public void setIlosc(int ilosc) {
+        this.ilosc = ilosc;
     }
-
-    public Obiekt(String[] obiekt1, String[] obiekt2) {
-        this.obiekt1 = obiekt1;
-        this.obiekt2 = obiekt2;
-    }
-
     @Override
-    public void printInfo() {
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (!(obj instanceof Obiekt))
+            return false;
+        Obiekt innyObiekt = (Obiekt) obj;
 
-    }
-
-    @Override
-    public void sprawdzenie() {
-        if (obiekt1==obiekt2){
-
-
+        if (!name.equals(innyObiekt.name)) {
+            return false;}
+        else {
+            return true;
         }
+    }
+    @Override
+    public String toString() {
+        return "Nazwa mebla: " + name + " ilość elementu: " + ilosc;
     }
 }

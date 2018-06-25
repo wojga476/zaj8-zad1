@@ -1,15 +1,16 @@
-import java.util.Scanner;
-
 public class Test {
 
     public static void main(String[] args) {
+        Obiekt [] meble = new Obiekt[2];
+        meble[0] = new Obiekt(){};
+        meble[1] = new Obiekt(){};
 
-        String [] obiekt =new String[3];
-        int [] obiekt1 =new int[3];
-        Scanner input=new Scanner(System.in);
-        System.out.println("podaj obiekt:");
-        for(int i=0; i<obiekt.length;i++) {
-            obiekt[i] = input.nextLine();
+
+        for (int i=0; meble[0].equals(meble[1]); i++) {
+            System.out.println("Popraw, tworzysz duplikat mebli.");
+            meble[1] = new Obiekt(){};
         }
+        System.out.println(meble[0].toString());
+        System.out.println(meble[1].toString());
     }
 }
